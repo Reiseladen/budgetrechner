@@ -72,8 +72,8 @@ if st.button("📊 Budget berechnen"):
 
     pdf = PDF()
     pdf.add_page()
-    content = f"""
-Reiseziel: {reiseziel}
+    
+content = f"""Reiseziel: {reiseziel}
 Dauer: {dauer} Tage
 Erwachsene: {erwachsene}
 Kinder: {kinder} (davon Babys: {babys})
@@ -81,19 +81,14 @@ Haustiere: {haustiere}
 Unterkunft: {unterkunft}
 Anreiseart: {anreise}
 Tagesbudget: {tagesbudget:.2f} €
-Gesamtbudget: ~{gesamt_budget:.2f} €
-"""
-    if bestehende_ausgaben:
-        content += f"Bereits gebuchte Ausgaben: {bestehende_ausgaben}\n"
+Gesamtbudget: ~{gesamt_budget:.2f} €\n"""
 
-"
-    if aktivitaeten:
-        content += f"Geplante Aktivitäten: {', '.join(aktivitaeten)}
-
-"
-    if freie_anmerkungen:
-        content += f"Anmerkungen: {freie_anmerkungen}
-"
+if bestehende_ausgaben:
+    content += f"Bereits gebuchte Ausgaben: {bestehende_ausgaben}\n"
+if aktivitaeten:
+    content += f"Geplante Aktivitäten: {', '.join(aktivitaeten)}\n"
+if freie_anmerkungen:
+    content += f"Anmerkungen: {freie_anmerkungen}\n"
 
     pdf.chapter_body(content)
     pdf_output = pdf.output(dest='S').encode('latin-1')
