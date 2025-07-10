@@ -84,10 +84,12 @@ Tagesbudget: {tagesbudget:.2f} €
 Gesamtbudget: ~{gesamt_budget:.2f} €
 """
     if bestehende_ausgaben:
-        content += f"Bereits gebuchte Ausgaben: {bestehende_ausgaben}
+        content += f"Bereits gebuchte Ausgaben: {bestehende_ausgaben}\n"
+
 "
     if aktivitaeten:
         content += f"Geplante Aktivitäten: {', '.join(aktivitaeten)}
+
 "
     if freie_anmerkungen:
         content += f"Anmerkungen: {freie_anmerkungen}
